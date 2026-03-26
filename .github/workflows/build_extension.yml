@@ -1,10 +1,10 @@
 name: Compile Extension
 
 on:
-  push:
-    branches:
-      - master  # Se activa al subir cambios
-  workflow_dispatch: # Te permite darle a un botón para compilar
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # Esto quita el aviso amarillo
 
 jobs:
   build:
@@ -22,13 +22,7 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Build with Gradle
+      - name: Build LatinoYT
         run: |
           chmod +x gradlew
-          ./gradlew :es:latinoyt:assembleDebug --stacktrace
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: LatinoYT-APK
-          path: "**/*.apk"
+          ./gradlew :es:latinoyt:assembleDebug --no-daemon
