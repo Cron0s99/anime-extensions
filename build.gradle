@@ -1,16 +1,12 @@
 plugins {
-    id 'com.android.application' version '8.2.0' apply false
-    id 'com.android.library' version '8.2.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.9.22' apply false
+    id 'com.android.application'
+    id 'kotlin-android'
 }
-
-// Deja el resto de 'android { ... }' como estaba, 
-// pero asegúrate de que NO tenga la línea: 
-// apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     namespace 'eu.kanade.tachiyomi.extension.es.latinoyt'
     compileSdk 34
+
     defaultConfig {
         applicationId "eu.kanade.tachiyomi.extension.es.latinoyt"
         minSdk 21
@@ -18,13 +14,11 @@ android {
         versionCode 1
         versionName "1.2.1"
     }
+
     sourceSets {
         main {
             manifest.srcFile 'src/es/latinoyt/AndroidManifest.xml'
             java.srcDirs = ['src/es/latinoyt/src']
         }
     }
-}
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
 }
