@@ -1,0 +1,20 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    namespace 'eu.kanade.tachiyomi.extension.es.latinoyt'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "eu.kanade.tachiyomi.extension.es.latinoyt"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.2.1"
+    }
+}
+
+dependencies {
+    implementation(project(':core'))
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
