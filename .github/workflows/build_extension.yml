@@ -1,28 +1,20 @@
 name: Compile Extension
-
-on:
-  workflow_dispatch:
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # Esto quita el aviso amarillo
-
+on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Build LatinoYT
+      - name: Build
         run: |
           chmod +x gradlew
-          ./gradlew :src:es:latinoyt:assembleDebug --no-daemon
+          ./gradlew assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: LatinoYT-APK
+          path: "**/*.apk"
+
