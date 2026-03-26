@@ -1,0 +1,23 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    namespace 'eu.kanade.tachiyomi.extension.es.latinoyt'
+    compileSdk 34
+    defaultConfig {
+        applicationId "eu.kanade.tachiyomi.extension.es.latinoyt"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.2.1"
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'src/es/latinoyt/AndroidManifest.xml'
+            java.srcDirs = ['src/es/latinoyt/src']
+        }
+    }
+}
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+}
