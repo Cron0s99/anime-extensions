@@ -1,5 +1,12 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+plugins {
+    id 'com.android.application' version '8.2.0' apply false
+    id 'com.android.library' version '8.2.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.22' apply false
+}
+
+// Deja el resto de 'android { ... }' como estaba, 
+// pero asegúrate de que NO tenga la línea: 
+// apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     namespace 'eu.kanade.tachiyomi.extension.es.latinoyt'
