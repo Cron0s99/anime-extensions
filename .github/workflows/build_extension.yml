@@ -25,5 +25,4 @@ jobs:
       - name: Build LatinoYT
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon
-
+          ./gradlew :src:es:latinoyt:assembleDebug --no-daemon
