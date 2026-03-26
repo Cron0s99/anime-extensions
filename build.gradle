@@ -1,12 +1,12 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android' version '1.9.22'
 }
 
 android {
     namespace 'eu.kanade.tachiyomi.extension.es.latinoyt'
     compileSdk 34
-
+    
     defaultConfig {
         applicationId "eu.kanade.tachiyomi.extension.es.latinoyt"
         minSdk 21
